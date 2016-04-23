@@ -7,19 +7,19 @@ document.querySelector('#generateButton').onclick = function() {
 			files: filetext
 		},
 		success: function(data) {
-			console.log(data);
 			data = JSON.parse(data);
 			symbols = data["symbols"];
-			code = data["code"];
-			// console.log(data);
-			$('#symbolList').html('');
+			unlinked_code = data["unlinked_code"];
+			linked_code = data["linked_code"];
+			$('#symbolTable').html('');
 			for (var key in symbols)
 			{
 				appendtext = '<strong>'+key+':</strong><br>';
 				appendtext += JSON.stringify(symbols[key])+'<br>';
-				$('#symbolList').html($('#symbolList').html()+appendtext);
+				$('#symbolTable').html($('#symbolTable').html()+appendtext);
 			}
-			$('#assembly_code').html(code);			
+			$('#unlinked_code').html(unlinked_code);
+			$('#linked_code').html(linked_code);
 		}
 	});
 }

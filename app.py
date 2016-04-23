@@ -27,16 +27,23 @@ def generate():
 		loader.load(mainfile, offset)
 		machine.convert(mainfile)
 
+		f=open("Output/"+files[-1].split('.')[0]+'.assemble','r')
+		code=f.read()
+		f.close()
+		code = code.split('\n')
+		for i in range(0,len(code)):
+			code[i] = "<span id=\""+str(i+1)+"\">"+code[i]+"</span><br>"
+		unlinked_code = ''.join(code)
+
 		f=open("Output/"+mainfile,'r')
 		code=f.read()
 		f.close()
 		code = code.split('\n')
 		for i in range(0,len(code)):
 			code[i] = "<span id=\""+str(i+1)+"\">"+code[i]+"</span><br>"
-		# code = code.replace("\n","<br>")
-		code = ''.join(code)
-		# print code
-		return json.dumps({'symbols':symbols,'code':code})
+		linked_code = ''.join(code)
+
+		return json.dumps({'symbols':symbols,'unlinked_code':unlinked_code,'linked_code':linked_code})
 	
 # @app.route('/simulate', methods=['POST'])
 # def simulate():

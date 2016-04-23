@@ -1,6 +1,10 @@
 body {
 	background-color: #f0f0f0;
 }
-#symbolList {
+#symbolTable , #instructionTable {
 	overflow: auto;
+}
+.code {
+	font-family:'Ubuntu Mono';
+	font-size:16px;
 }
