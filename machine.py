@@ -10,7 +10,6 @@ def convert(filename):
 	reg={}
 	mem=[0]*1024
 
-
 	for line in lines:
 		line_split = line.split(' ')
 

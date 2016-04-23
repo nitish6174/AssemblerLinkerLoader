@@ -1,7 +1,7 @@
 body {
 	background-color: #f0f0f0;
 }
-#symbolTable , #instructionTable {
+#symbolTable , #literalTable {
 	overflow: auto;
 }
 .code {

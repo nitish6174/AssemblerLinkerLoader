@@ -18,14 +18,15 @@
 					</div>
 					<div class="panel-body text-center">
 						<label>Enter the file names that you want to Assemble-Link-Load<br>(In order of execution)<br></label>
-						<input id="filetext" type="text" name="filetext" placeholder="Files" class="form-control">
+						<input type="text" name="filetext" id="filetext" placeholder="Files" class="form-control">
+						<input type="text" name="offset" id="offset" placeholder="Offset" class="form-control">
 						<br>
-						<input type="submit" value="Assemble" class="btn btn-primary" id="generateButton">
+						<input type="submit" value="Assemble" class="btn btn-primary" id="generateButton" onclick="call_process();">
 						<br><br>
 						<!-- <label>Enter the name of the loaded file.<br></label> -->
-						<!-- <input id="file" type="text" name="file" placeholder="Loaded File" class="form-control"> -->
+						<input type="text" name="loadfile" id="loadfile" placeholder="Loaded File" class="form-control hidden">
 						<!-- <br> -->
-						<input type="submit" value="Simulate" class="btn btn-primary">
+						<input type="submit" value="Simulate" class="btn btn-primary" onclick="call_simulation();">
 					</div>
 				</div>
 				<div class="panel panel-info">
@@ -33,11 +34,11 @@
 						<h3 class="panel-title">Pass 1</h3>
 					</div>
 					<div class="panel-body">
+						<strong>Literal table:</strong>
+						<div id="literalTable"></div>
+						<br>
 						<strong>Symbol table:</strong>
 						<div id="symbolTable"></div>
-						<br>
-						<strong>Instruction table:</strong>
-						<div id="instructionTable"></div>
 					</div>
 				</div>
 			</div>
@@ -69,8 +70,10 @@
 						<h3 class="panel-title">Simulation</h3>
 					</div>
 					<div class="panel-body">
-						<div id="simulation">
+						<div id="simulationWrapper">
 							<h4>Simulation will be shown here</h4>
+							<button class="btn-btn-success" id="nextStepButton" onclick="next_step();">Next step</button>							
+							<div id="simulationResult"></div>
 						</div>
 					</div>
 				</div>
