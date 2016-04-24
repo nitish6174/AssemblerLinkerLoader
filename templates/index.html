@@ -11,7 +11,7 @@
 <body>
 	<div class="container-fluid" style="margin-top:10px;;">    
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-sm-3">
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<h3 class="panel-title">Input Code</h3>
@@ -42,29 +42,26 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-sm-3">
 				<div class="panel panel-warning">
 					<div class="panel-heading">
 						<h3 class="panel-title">Assembly Code (Pass 2)</h3>
 					</div>
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-sm-6">
-								<h4 class="text-center">Before linking</h4>
+							<div class="col-xs-6">
+								<h5 class="text-center"><strong>Before linking</strong></h5>
 								<div id="unlinked_code" class="code"></div>
 							</div>
-							<div class="col-sm-6">
-								<h4 class="text-center">After linking</h4>
+							<div class="col-xs-6">
+								<h5 class="text-center"><strong>After linking</strong></h5>
 								<div id="linked_code" class="code"></div>
 							</div>
 						</div>
-						<!-- <div id="assembly_code" style="font-family:'Ubuntu Mono'; font-size:16px;">
-							<h4>Generated assembly code will be shown here</h4>
-						</div> -->
 					</div>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-sm-6">
 				<div class="panel panel-success">
 					<div class="panel-heading">
 						<h3 class="panel-title">Simulation</h3>
@@ -72,8 +69,166 @@
 					<div class="panel-body">
 						<div id="simulationWrapper">
 							<h4>Simulation will be shown here</h4>
-							<button class="btn-btn-success" id="nextStepButton" onclick="next_step();">Next step</button>							
-							<div id="simulationResult"></div>
+							<div id="simulationResult">
+								<button class="btn-btn-success" id="nextStepButton" onclick="next_step();">Next step</button>
+								<div id="stepMessage"></div>
+								<strong>Registers:</strong>
+								<table class="table table-bordered" id="regResTable">
+									<tr>
+										<th>A</th>
+										<th>B</th>
+										<th>C</th>
+										<th>D</th>
+										<th>E</th>
+										<th>H</th>
+										<th>L</th>
+									</tr>
+									<tr>
+										<td id="regResCellA"></td>
+										<td id="regResCellB"></td>
+										<td id="regResCellC"></td>
+										<td id="regResCellD"></td>
+										<td id="regResCellE"></td>
+										<td id="regResCellH"></td>
+										<td id="regResCellL"></td>
+									</tr>
+								</table>
+								<strong>Memories:</strong>
+								<table class="table table-bordered" id="memResTable">
+									<tr>
+										<td id="memResCell1"></td>
+										<td id="memResCell2"></td>
+										<td id="memResCell3"></td>
+										<td id="memResCell4"></td>
+										<td id="memResCell5"></td>
+										<td id="memResCell6"></td>
+										<td id="memResCell7"></td>
+										<td id="memResCell8"></td>
+										<td id="memResCell9"></td>
+										<td id="memResCell10"></td>
+									<!-- </tr>
+									<tr> -->
+										<td id="memResCell11"></td>
+										<td id="memResCell12"></td>
+										<td id="memResCell13"></td>
+										<td id="memResCell14"></td>
+										<td id="memResCell15"></td>
+										<td id="memResCell16"></td>
+										<td id="memResCell17"></td>
+										<td id="memResCell18"></td>
+										<td id="memResCell19"></td>
+										<td id="memResCell20"></td>
+									</tr>
+									<tr>
+										<td id="memResCell21"></td>
+										<td id="memResCell22"></td>
+										<td id="memResCell23"></td>
+										<td id="memResCell24"></td>
+										<td id="memResCell25"></td>
+										<td id="memResCell26"></td>
+										<td id="memResCell27"></td>
+										<td id="memResCell28"></td>
+										<td id="memResCell29"></td>
+										<td id="memResCell30"></td>
+									<!-- </tr>
+									<tr> -->
+										<td id="memResCell31"></td>
+										<td id="memResCell32"></td>
+										<td id="memResCell33"></td>
+										<td id="memResCell34"></td>
+										<td id="memResCell35"></td>
+										<td id="memResCell36"></td>
+										<td id="memResCell37"></td>
+										<td id="memResCell38"></td>
+										<td id="memResCell39"></td>
+										<td id="memResCell40"></td>
+									</tr>
+									<tr>
+										<td id="memResCell41"></td>
+										<td id="memResCell42"></td>
+										<td id="memResCell43"></td>
+										<td id="memResCell44"></td>
+										<td id="memResCell45"></td>
+										<td id="memResCell46"></td>
+										<td id="memResCell47"></td>
+										<td id="memResCell48"></td>
+										<td id="memResCell49"></td>
+										<td id="memResCell50"></td>
+									<!-- </tr>
+									<tr> -->
+										<td id="memResCell51"></td>
+										<td id="memResCell52"></td>
+										<td id="memResCell53"></td>
+										<td id="memResCell54"></td>
+										<td id="memResCell55"></td>
+										<td id="memResCell56"></td>
+										<td id="memResCell57"></td>
+										<td id="memResCell58"></td>
+										<td id="memResCell59"></td>
+										<td id="memResCell60"></td>
+									</tr>
+									<tr>
+										<td id="memResCell61"></td>
+										<td id="memResCell62"></td>
+										<td id="memResCell63"></td>
+										<td id="memResCell64"></td>
+										<td id="memResCell65"></td>
+										<td id="memResCell66"></td>
+										<td id="memResCell67"></td>
+										<td id="memResCell68"></td>
+										<td id="memResCell69"></td>
+										<td id="memResCell70"></td>
+									<!-- </tr>
+									<tr> -->
+										<td id="memResCell71"></td>
+										<td id="memResCell72"></td>
+										<td id="memResCell73"></td>
+										<td id="memResCell74"></td>
+										<td id="memResCell75"></td>
+										<td id="memResCell76"></td>
+										<td id="memResCell77"></td>
+										<td id="memResCell78"></td>
+										<td id="memResCell79"></td>
+										<td id="memResCell80"></td>
+									</tr>
+									<tr>
+										<td id="memResCell81"></td>
+										<td id="memResCell82"></td>
+										<td id="memResCell83"></td>
+										<td id="memResCell84"></td>
+										<td id="memResCell85"></td>
+										<td id="memResCell86"></td>
+										<td id="memResCell87"></td>
+										<td id="memResCell88"></td>
+										<td id="memResCell89"></td>
+										<td id="memResCell90"></td>
+									<!-- </tr>
+									<tr> -->
+										<td id="memResCell91"></td>
+										<td id="memResCell92"></td>
+										<td id="memResCell93"></td>
+										<td id="memResCell94"></td>
+										<td id="memResCell95"></td>
+										<td id="memResCell96"></td>
+										<td id="memResCell97"></td>
+										<td id="memResCell98"></td>
+										<td id="memResCell99"></td>
+										<td id="memResCell100"></td>
+									</tr>
+								</table>
+								<strong>Flags:</strong>
+								<table class="table table-bordered" id="flagResTable">
+									<tr>
+										<td id="flagResCell1"></td>
+										<td id="flagResCell2"></td>
+										<td id="flagResCell3"></td>
+										<td id="flagResCell4"></td>
+										<td id="flagResCell5"></td>
+									</tr>
+								</table>
+								<strong>Code recently executed:</strong>
+								<div id="codeMessage"></div>
+							</div>
 						</div>
 					</div>
 				</div>
