@@ -32,14 +32,22 @@ function call_process()
 			pass1code = data["pass1code"];
 			pass2code = data["pass2code"];
 			link_code = data["link_code"];
-			$('#literalTable').html(' ');
+			appendtext = "";
 			for (var key in symbols)
 			{
-				appendtext = '<strong>'+key+':</strong><br>';
-				appendtext += JSON.stringify(symbols[key])+'<br>';
-				$('#literalTable').html($('#literalTable').html()+appendtext);
+				appendtext += '<strong>'+key+':</strong><br>';
+				for (var iden in symbols[key])
+				{
+					appendtext += iden+" : "+symbols[key][iden]+'<br>';					
+				}
 			}
-			$('#symbolTable').html(JSON.stringify(symbol_table));
+			$('#literalTable').html(appendtext);
+			appendtext = "";
+			for (var key in symbol_table)
+			{
+				appendtext += symbol_table[key]+" : "+key+'<br>';
+			}
+			$('#symbolTable').html(appendtext);
 			$('#pass1code').html(pass1code);
 			$('#pass2code').html(pass2code);
 			$('#link_code').html(link_code);
@@ -80,7 +88,7 @@ function next_step()
 {
 	if(sim_step<res_regs.length)
 	{
-		$('#stepMessage').html("Current step : "+(sim_step+1).toString()+" (out of "+res_regs.length+")<br>");
+		$('#stepMessage').html("<strong>Current step : </strong>"+(sim_step+1).toString()+" (out of "+res_regs.length+")<br>");
 		for(var key in res_regs[sim_step])
 		{
 			$('#regResCell'+key).html(res_regs[sim_step][key]);

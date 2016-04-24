@@ -79,7 +79,7 @@ def simulate():
 			res_regs.append(reg.copy())
 			res_mems.append(mem[:100])
 			res_flags.append(flag[:])
-			res_code.append(lines[str(prevs)])
+			res_code.append(str(prevs)+" ("+lines[str(prevs)]+")")
 
 		def set_flag(acc):
 			if acc == 0:

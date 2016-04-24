@@ -6,11 +6,12 @@ body {
 }
 
 .code_tab {
-	background-color: #eee;
+	/* background-color: #eee; */
 	cursor: pointer;
 }
 .code_tab.checked {
-	background-color: #fff;
+	/* background-color: #fff; */
+	border-bottom: 2px solid green;
 }
 .code {
 	font-family:'Ubuntu Mono';

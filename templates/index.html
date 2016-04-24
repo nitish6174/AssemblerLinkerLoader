@@ -34,11 +34,16 @@
 						<h3 class="panel-title">Tables</h3>
 					</div>
 					<div class="panel-body">
-						<strong>Literal table:</strong>
-						<div id="literalTable"></div>
-						<br>
-						<strong>Symbol table:</strong>
-						<div id="symbolTable"></div>
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="text-center"><strong>Literal table</strong></div>
+								<div id="literalTable"></div>								
+							</div>
+							<div class="col-sm-6">
+								<div class="text-center"><strong>Symbol table</strong></div>
+								<div id="symbolTable"></div>								
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -74,7 +79,7 @@
 						<div id="simulationWrapper">
 							<h4>Simulation will be shown here</h4>
 							<div id="simulationResult">
-								<button class="btn-btn-success" id="nextStepButton" onclick="next_step();">Next step</button>
+								<button class="btn-btn-success" id="nextStepButton" onclick="next_step();">Next step</button><br>
 								<div id="stepMessage"></div>
 								<strong>Registers:</strong>
 								<table class="table table-bordered" id="regResTable">
