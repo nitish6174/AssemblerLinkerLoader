@@ -72,11 +72,13 @@ def simulate():
 			# print 'Memory:'
 			# print mem[:100]
 			# print 'Flags : '+str(flag)
+			# print 'Prev Statement:'+str(prevs)
+			# print 'Next Statement:'+str(nexts)
 			# print 'Prev Statement:'+lines[str(prevs)]
 			# print 'Next Statement:'+lines[str(nexts)]
-			res_regs.append(reg)
+			res_regs.append(reg.copy())
 			res_mems.append(mem[:100])
-			res_flags.append(flag)
+			res_flags.append(flag[:])
 			res_code.append(lines[str(prevs)])
 
 		def set_flag(acc):
