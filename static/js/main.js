@@ -20,18 +20,21 @@ function call_process()
 		success: function(data) {
 			data = JSON.parse(data);
 			symbols = data["symbols"];
-			unlinked_code = data["unlinked_code"];
-			linked_code = data["linked_code"];
+			symbol_table = data["symbol_table"];
 			loadfile = data["loadfile"];
-			$('#literalTable').html('');
+			pass1code = data["pass1code"];
+			pass2code = data["pass2code"];
+			link_code = data["link_code"];
+			$('#literalTable').html(' ');
 			for (var key in symbols)
 			{
 				appendtext = '<strong>'+key+':</strong><br>';
 				appendtext += JSON.stringify(symbols[key])+'<br>';
 				$('#literalTable').html($('#literalTable').html()+appendtext);
 			}
-			$('#unlinked_code').html(unlinked_code);
-			$('#linked_code').html(linked_code);
+			$('#symbolTable').html(JSON.stringify(symbol_table));
+			$('#pass1code').html(pass1code);
+			$('#pass2code').html(pass2code);
 			$('input[name="loadfile"]').val(loadfile);
 		}
 	});

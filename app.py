@@ -22,28 +22,37 @@ def generate():
 
 		loadfile = files[-1].split('.')[0]
 		mainfile=loadfile+'.asm'
-		symbols=assembler.assemble(files)
+		symbols,symbol_table=assembler.assemble(files)
 		linker.link(mainfile, symbols)
 		loader.load(mainfile, offset)
 		machine.convert(mainfile)
 
-		f=open("Output/"+loadfile+'.assemble','r')
+		f=open("Output/"+loadfile+'.pass1','r')
+		code=f.read()
+		f.close()
+		code = code.split('\n')
+		for i in range(0,len(code)):
+			code[i] = code[i].replace(' ','&nbsp;')
+			code[i] = "<span id=\""+str(i+1)+"\">"+code[i]+"</span><br>"
+		pass1code = ''.join(code)
+
+		f=open("Output/"+loadfile+'.pass2','r')
 		code=f.read()
 		f.close()
 		code = code.split('\n')
 		for i in range(0,len(code)):
 			code[i] = "<span id=\""+str(i+1)+"\">"+code[i]+"</span><br>"
-		unlinked_code = ''.join(code)
+		pass2code = ''.join(code)
 
-		f=open("Output/"+mainfile,'r')
+		f=open("Output/"+loadfile+'.asm','r')
 		code=f.read()
 		f.close()
 		code = code.split('\n')
 		for i in range(0,len(code)):
 			code[i] = "<span id=\""+str(i+1)+"\">"+code[i]+"</span><br>"
-		linked_code = ''.join(code)
+		link_code = ''.join(code)
 
-		return json.dumps({'symbols':symbols,'loadfile':loadfile,'unlinked_code':unlinked_code,'linked_code':linked_code})
+		return json.dumps({'symbols':symbols,'symbol_table':symbol_table,'loadfile':loadfile,'pass1code':pass1code,'pass2code':pass2code,'link_code':link_code})
 	
 @app.route('/simulate', methods=['POST'])
 def simulate():

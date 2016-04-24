@@ -15,7 +15,7 @@ offset = 0
 
 print ""
 mainfile=files[-1].split('.')[0]+'.asm'
-symbols=assembler.assemble(files)
+symbols,symbol_table=assembler.assemble(files)
 linker.link(mainfile, symbols)
 loader.load(mainfile, offset)
 machine.convert(mainfile)
