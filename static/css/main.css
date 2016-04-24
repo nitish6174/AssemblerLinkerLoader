@@ -4,10 +4,23 @@ body {
 #symbolTable , #literalTable {
 	overflow: auto;
 }
+
+.code_tab {
+	background-color: #eee;
+	cursor: pointer;
+}
+.code_tab.checked {
+	background-color: #fff;
+}
 .code {
 	font-family:'Ubuntu Mono';
 	font-size:16px;
+	display: hidden;
 }
+.code#pass1code {
+	display: block;
+}
+
 
 #simulationResult {
 	display: none;

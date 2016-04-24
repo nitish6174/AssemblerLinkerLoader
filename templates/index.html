@@ -11,7 +11,7 @@
 <body>
 	<div class="container-fluid" style="margin-top:10px;;">    
 		<div class="row">
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<h3 class="panel-title">Input Code</h3>
@@ -42,22 +42,26 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-3">
 				<div class="panel panel-warning">
 					<div class="panel-heading">
 						<h3 class="panel-title">Assembly Code</h3>
 					</div>
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-xs-8">
-								<h5 class="text-center"><strong>Pass 1</strong></h5>
-								<div id="pass1code" class="code"></div>
+							<div class="col-xs-4 text-center code_tab checked" data-show="pass1code">
+								<strong>Pass 1</strong>
 							</div>
-							<div class="col-xs-4">
-								<h5 class="text-center"><strong>Pass 2</strong></h5>
-								<div id="pass2code" class="code"></div>
+							<div class="col-xs-4 text-center code_tab" data-show="pass2code">
+								<strong>Pass 2</strong>
+							</div>
+							<div class="col-xs-4 text-center code_tab" data-show="link_code">
+								<strong>Linked</strong>
 							</div>
 						</div>
+						<div id="pass1code" class="code"></div>
+						<div id="pass2code" class="code"></div>
+						<div id="link_code" class="code"></div>
 					</div>
 				</div>
 			</div>
