@@ -6,4 +6,5 @@ if(b>c)
 	if(a=b)
 		c=6
 	endif
+	b=a
 endif

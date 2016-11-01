@@ -31,7 +31,7 @@ def label_check(label):
 	return label
 
 def generate(string,pp,label):
-	instr=(str(pp)).ljust(4,' ')
+	instr='#'+(str(pp)).ljust(4,' ')
 	if label:
 		instr+=' '+label+' '
 		symbol_table[pp]=label

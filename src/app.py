@@ -1,7 +1,6 @@
 from flask import Flask,request,render_template
 import sys
 import json
-# sys.path.insert(0, r'/mnt/B4A49A87A49A4BAC/Programming/Systems Programming/Assembler_Linker_Loader/process')
 import assembler
 import linker
 import loader
@@ -79,7 +78,8 @@ def simulate():
 			res_regs.append(reg.copy())
 			res_mems.append(mem[:100])
 			res_flags.append(flag[:])
-			res_code.append(str(prevs)+" ("+lines[str(prevs)]+")")
+			res_code.append(lines[str(prevs)])
+			# res_code.append(str(prevs)+" ("+lines[str(prevs)]+")")
 
 		def set_flag(acc):
 			if acc == 0:
